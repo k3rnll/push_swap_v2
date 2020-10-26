@@ -34,7 +34,7 @@ void	move(char *buf, t_ps *ps)
 		*buf = 0;
 	else
 	{
-		write(1, "Error\n", 6);
+		write(1, "\nError\n", 7);
 		exit(0);
 	}
 	ft_memset(buf, 0, 6);
@@ -48,6 +48,7 @@ void	catch(void)
 	i = 0;
 	while (read(0, &c, 1))
 		i++;
+	c != '\n' ? write(1, "\n", 1) : 0;
 	put_error();
 }
 
