@@ -37,6 +37,7 @@ void	move(char *buf, t_ps *ps)
 		write(1, "Error\n", 6);
 		exit(0);
 	}
+	ft_memset(buf, 0, 6);
 }
 
 void	catch(void)
@@ -57,19 +58,19 @@ int		main(int ac, char **av)
 	int		i;
 
 	if (ac < 2)
-		return (0);
+		exit(0);
 	if (!(ps = (t_ps *)malloc(sizeof(*ps))))
-		return (1);
+		exit(1);
 	!chk_inp(ac, av, ps) ? catch() : 0;
+	*buf = 0;
 	ps->out_en = 0;
 	i = 0;
-	while (read(0, &buf[i], 1))
+	while (read(0, buf + i, 1))
 	{
 		if (buf[i] == '\n')
 		{
 			buf[i] = '\0';
 			move(buf, ps);
-			ft_memset(buf, 0, 6);
 		}
 		i = buf[i] != '\0' && i < 5 ? i + 1 : 0;
 	}

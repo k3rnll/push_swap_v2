@@ -47,13 +47,13 @@ int		main(int ac, char **av)
 	int		chunk;
 
 	if (ac < 3)
-		return (0);
+		exit(0);
 	if (!(ps = (t_ps*)malloc(sizeof(*ps))))
-		return (1);
+		exit(1);
 	chk_inp(ac, av, ps) ? 0 : put_error();
 	ps->out_en = 1;
 	if (!(chk_sort(ps)))
-		return (0);
+		exit(0);
 	chunk = ps->a_c / ((ps->a_c / 100 + 4) + 1);
 	chunk = chunk == 0 ? 1 : chunk;
 	mv_a(ps, chunk);
