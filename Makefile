@@ -27,9 +27,9 @@ HDR_LIST = push_swap.h
 HDR = $(addprefix $(HDR_DIR), $(HDR_LIST))
 
 SRC_DIR = ./src/
-SRC_LIST =	find.c put_ab.c rotate_ab.c \
-			smart_rt.c switch_ab.c up_dw.c \
-			helper.c helper2.c
+SRC_LIST = 	find.c put_ab.c rotate_ab.c \
+		smart_rt.c switch_ab.c up_dw.c \
+		helper.c helper2.c
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
 OBJ_DIR = ./obj/
@@ -74,6 +74,7 @@ clean:
 	@echo clean Done
 
 fclean:
+	@$(MAKE) clean
 	@rm -f $(LIB)
 	@rm -f $(NAME) $(NAME2)
 	@echo fclean Done
