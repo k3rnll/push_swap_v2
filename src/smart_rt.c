@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 14:41:48 by k3                #+#    #+#             */
-/*   Updated: 2020/10/26 13:52:46 by k3               ###   ########.fr       */
+/*   Updated: 2020/10/26 14:37:57 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int		smart_rt(t_ps *ps, int min, int chunk, char c)
 	counter = c == 'a' ? ps->a_c : ps->b_c;
 	i = 0;
 	k = counter == 0 ? 0 : counter - 1;
-	while (!(arr[i] >= min && arr[i] < min + chunk) && i < counter)
+	while (i < counter && !(arr[i] >= min && arr[i] < min + chunk))
 		i++;
-	while (!(arr[k] >= min && arr[k] < min + chunk) && k > 0)
+	while (k >= 0 && !(arr[k] >= min && arr[k] < min + chunk))
 		k--;
 	if (i < counter || k >= 0)
 	{

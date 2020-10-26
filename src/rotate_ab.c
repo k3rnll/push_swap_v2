@@ -19,7 +19,7 @@ void	ra(t_ps *ps)
 
 	i = 0;
 	tmp = ps->a[0];
-	while (i < ps->a_c)
+	while (i < ps->a_c - 1)
 	{
 		ps->a[i] = ps->a[i + 1];
 		i++;
@@ -35,7 +35,7 @@ void	rb(t_ps *ps)
 
 	i = 0;
 	tmp = ps->b[0];
-	while (i < ps->b_c)
+	while (i < ps->b_c - 1)
 	{
 		ps->b[i] = ps->b[i + 1];
 		i++;
