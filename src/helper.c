@@ -52,7 +52,7 @@ int		chk_inp(int ac, char **av, t_ps *ps)
 	int	len;
 	int	tmp;
 
-	clear_stack(ps);
+	clear_stack(ps, ac);
 	i = 1;
 	while (i < ac)
 	{

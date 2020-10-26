@@ -6,18 +6,21 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 21:09:08 by k3                #+#    #+#             */
-/*   Updated: 2020/10/23 21:24:45 by k3               ###   ########.fr       */
+/*   Updated: 2020/10/26 13:41:30 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	clear_stack(t_ps *ps)
+void	clear_stack(t_ps *ps, int ac)
 {
 	int	i;
 
+	if (!(ps->a = (int*)malloc((ac - 1) * sizeof(int))) ||
+		!(ps->b = (int*)malloc((ac - 1) * sizeof(int))))
+		exit(0);
 	i = 0;
-	while (i < BUFF)
+	while (i < ac - 1)
 	{
 		ps->a[i] = 0;
 		ps->b[i] = 0;
