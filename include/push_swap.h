@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 21:11:08 by k3                #+#    #+#             */
-/*   Updated: 2020/10/26 13:18:18 by k3               ###   ########.fr       */
+/*   Updated: 2020/10/29 11:23:44 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ typedef struct	s_ps
 {
 	int	*a;
 	int	*b;
+	int *s;
+	int s_c;
 	int	a_c;
 	int	b_c;
 	int	out_en;
@@ -27,8 +29,10 @@ typedef struct	s_ps
 
 void			sa(t_ps *ps);
 void			sb(t_ps *ps);
+void			ss(t_ps *ps);
 void			ra(t_ps *ps);
 void			rb(t_ps *ps);
+void			rr(t_ps *ps);
 void			rra(t_ps *ps);
 void			rrb(t_ps *ps);
 void			rrr(t_ps *ps);
@@ -44,5 +48,8 @@ int				chk_inp(int ac, char **av, t_ps *ps);
 int				chk_sort(t_ps *ps);
 void			sort_3(t_ps *ps);
 void			put_error();
+int 			ch_match(t_ps *ps, int tmp);
+int				smart_find(t_ps *ps, int min, int chunk, char c);
+int 			find_next(t_ps *ps, int tmp, char c);
 
 #endif

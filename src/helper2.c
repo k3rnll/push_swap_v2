@@ -6,27 +6,44 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 21:09:08 by k3                #+#    #+#             */
-/*   Updated: 2020/10/26 13:41:30 by k3               ###   ########.fr       */
+/*   Updated: 2020/10/29 20:08:31 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int		ch_match(t_ps *ps, int tmp)
+{
+	int i;
+
+	i = 0;
+	while (i < ps->s_c)
+	{
+		if (tmp == ps->s[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 void	clear_stack(t_ps *ps, int ac)
 {
 	int	i;
 
 	if (!(ps->a = (int*)malloc((ac - 1) * sizeof(int))) ||
-		!(ps->b = (int*)malloc((ac - 1) * sizeof(int))))
+		!(ps->b = (int*)malloc((ac - 1) * sizeof(int))) ||
+		!(ps->s = (int*)malloc((ac - 1) * sizeof(int))))
 		exit(0);
 	i = 0;
 	while (i < ac - 1)
 	{
 		ps->a[i] = 0;
 		ps->b[i] = 0;
+		ps->s[i] = 0;
 		i++;
 	}
 	ps->b_c = 0;
+	ps->s_c = 0;
 }
 
 int		chk_sort(t_ps *ps)
@@ -37,7 +54,7 @@ int		chk_sort(t_ps *ps)
 	while (i < ps->a_c - 1)
 	{
 		if (ps->a[i] > ps->a[i + 1])
-			return (ps->a_c - 1 - i);
+			return (i + 1);
 		i++;
 	}
 	return (0);

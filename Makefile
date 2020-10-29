@@ -29,7 +29,7 @@ HDR = $(addprefix $(HDR_DIR), $(HDR_LIST))
 SRC_DIR = ./src/
 SRC_LIST = 	find.c put_ab.c rotate_ab.c \
 		smart_rt.c switch_ab.c up_dw.c \
-		helper.c helper2.c
+		helper.c helper2.c rear_rt_ab.c
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
 OBJ_DIR = ./obj/
