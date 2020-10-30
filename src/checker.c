@@ -6,22 +6,11 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 12:40:49 by k3                #+#    #+#             */
-/*   Updated: 2020/10/27 20:42:56 by k3               ###   ########.fr       */
+/*   Updated: 2020/10/30 10:50:54 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-void	catch(void)
-{
-	char	c;
-	int		i;
-
-	i = 0;
-	while (read(0, &c, 1))
-		i++;
-	put_error();
-}
 
 void	move(char *buf, t_ps *ps)
 {
@@ -48,7 +37,7 @@ void	move(char *buf, t_ps *ps)
 	else if (ft_strequ(buf, "ss\n"))
 		ss(ps);
 	else
-		catch();
+		put_error();
 	ft_memset(buf, 0, 6);
 }
 
@@ -62,7 +51,7 @@ int		main(int ac, char **av)
 		exit(0);
 	if (!(ps = (t_ps *)malloc(sizeof(*ps))))
 		exit(1);
-	!chk_inp(ac, av, ps) ? catch() : 0;
+	!chk_inp(ac, av, ps) ? put_error() : 0;
 	buf = ft_strnew(6);
 	ps->out_en = 0;
 	i = 0;

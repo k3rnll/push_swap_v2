@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 21:11:08 by k3                #+#    #+#             */
-/*   Updated: 2020/10/29 11:23:44 by k3               ###   ########.fr       */
+/*   Updated: 2020/10/30 10:50:54 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int				chk_sort(t_ps *ps);
 void			sort_3(t_ps *ps);
 void			put_error();
 int 			ch_match(t_ps *ps, int tmp);
-int				smart_find(t_ps *ps, int min, int chunk, char c);
 int 			find_next(t_ps *ps, int tmp, char c);
 
 #endif
