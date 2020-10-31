@@ -17,14 +17,17 @@ void	rra(t_ps *ps)
 	int	tmp;
 	int	i;
 
-	i = ps->a_c - 1;
-	tmp = ps->a[i];
-	while (i)
+	if (ps->a_c)
 	{
-		ps->a[i] = ps->a[i - 1];
-		i--;
+		i = ps->a_c - 1;
+		tmp = ps->a[i];
+		while (i)
+		{
+			ps->a[i] = ps->a[i - 1];
+			i--;
+		}
+		ps->a[0] = tmp;
 	}
-	ps->a[0] = tmp;
 	ps->out_en ? write(1, "rra\n", 4) : 0;
 }
 
@@ -33,7 +36,7 @@ void	rrb(t_ps *ps)
 	int	tmp;
 	int	i;
 
-	if (ps->b_c > 1)
+	if (ps->b_c)
 	{
 		i = ps->b_c - 1;
 		tmp = ps->b[i];

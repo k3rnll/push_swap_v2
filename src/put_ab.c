@@ -14,20 +14,26 @@
 
 void	pa(t_ps *ps)
 {
-	down_stack(ps, ps->a);
-	ps->a_c += 1;
-	ps->a[0] = ps->b[0];
-	up_stack(ps, ps->b);
-	ps->b_c -= 1;
+	if (ps->b_c)
+	{
+		down_stack(ps, ps->a);
+		ps->a_c += 1;
+		ps->a[0] = ps->b[0];
+		up_stack(ps, ps->b);
+		ps->b_c -= 1;
+	}
 	ps->out_en ? write(1, "pa\n", 3) : 0;
 }
 
 void	pb(t_ps *ps)
 {
-	down_stack(ps, ps->b);
-	ps->b_c += 1;
-	ps->b[0] = ps->a[0];
-	up_stack(ps, ps->a);
-	ps->a_c -= 1;
+	if (ps->a_c)
+	{
+		down_stack(ps, ps->b);
+		ps->b_c += 1;
+		ps->b[0] = ps->a[0];
+		up_stack(ps, ps->a);
+		ps->a_c -= 1;
+	}
 	ps->out_en ? write(1, "pb\n", 3) : 0;
 }

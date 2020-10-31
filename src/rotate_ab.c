@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 21:43:06 by k3                #+#    #+#             */
-/*   Updated: 2020/10/23 21:43:06 by k3               ###   ########.fr       */
+/*   Updated: 2020/10/31 11:28:45 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@ void	ra(t_ps *ps)
 	int	i;
 
 	i = 0;
-	tmp = ps->a[0];
-	while (i < ps->a_c - 1)
+	if (ps->a_c)
 	{
-		ps->a[i] = ps->a[i + 1];
-		i++;
+		tmp = ps->a[0];
+		while (i < ps->a_c - 1)
+		{
+			ps->a[i] = ps->a[i + 1];
+			i++;
+		}
+		ps->a[ps->a_c - 1] = tmp;
 	}
-	ps->a[ps->a_c - 1] = tmp;
 	ps->out_en ? write(1, "ra\n", 3) : 0;
 }
 
@@ -34,13 +37,16 @@ void	rb(t_ps *ps)
 	int	i;
 
 	i = 0;
-	tmp = ps->b[0];
-	while (i < ps->b_c - 1)
+	if (ps->b_c)
 	{
-		ps->b[i] = ps->b[i + 1];
-		i++;
+		tmp = ps->b[0];
+		while (i < ps->b_c - 1)
+		{
+			ps->b[i] = ps->b[i + 1];
+			i++;
+		}
+		ps->b[ps->b_c - 1] = tmp;
 	}
-	ps->b[ps->b_c - 1] = tmp;
 	ps->out_en ? write(1, "rb\n", 3) : 0;
 }
 
